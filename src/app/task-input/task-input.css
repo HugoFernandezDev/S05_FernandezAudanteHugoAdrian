@@ -1,0 +1,68 @@
+.input-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  background: var(--surface-2);
+  color: var(--text-main);
+}
+
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: #fff;
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+.btn-add {
+  padding: 0 20px;
+  min-height: 46px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-soft));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: var(--shadow-1);
+}
+
+.btn-add:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+.btn-add:active {
+  transform: translateY(0);
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-size: 14px;
+  grid-column: 1 / -1;
+  margin-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .input-container {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-add {
+    width: 100%;
+  }
+}

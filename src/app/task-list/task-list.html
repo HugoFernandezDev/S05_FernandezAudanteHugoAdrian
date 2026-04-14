@@ -1,0 +1,41 @@
+<div class="task-list-container">
+  <div *ngIf="totalTareas === 0" class="empty-message">
+    No hay tareas registradas
+  </div>
+
+  <div *ngIf="totalTareas > 0">
+    <div class="task-info">
+      <p class="counter">Total tareas: {{ totalTareas }} · Completadas: {{ tareasCompletadas }}</p>
+    </div>
+
+    <ul class="task-list">
+      <li *ngFor="let tarea of tareas; let i = index" 
+          class="task-item"
+          [class.completed]="tarea.completed">
+        
+        <div class="task-content">
+          <button
+            type="button"
+            (click)="marcarCompletar(i)"
+            class="btn-checkbox"
+            [class.checked]="tarea.completed"
+            [attr.aria-label]="tarea.completed ? 'Marcar como no completada' : 'Marcar como completada'">
+            {{ tarea.completed ? '✓' : '☐' }}
+          </button>
+          
+          <span class="task-text" [class.line-through]="tarea.completed">
+            {{ tarea.title }}
+          </span>
+        </div>
+
+        <button
+          type="button"
+          (click)="eliminarTarea(i)"
+          class="btn-delete"
+          aria-label="Eliminar tarea">
+          ✕
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

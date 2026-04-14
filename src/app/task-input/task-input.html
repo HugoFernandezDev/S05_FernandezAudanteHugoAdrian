@@ -1,0 +1,16 @@
+<div class="input-container">
+  <input 
+    type="text" 
+    [(ngModel)]="nuevaTarea"
+    (keypress)="onKeyPress($event)"
+    placeholder="Escribe una nueva tarea..."
+    class="input-field"
+    aria-label="Campo para escribir nueva tarea"
+  />
+  <button type="button" (click)="agregarTarea()" class="btn-add" aria-label="Agregar nueva tarea">
+    Agregar
+  </button>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>
